@@ -1,6 +1,6 @@
 package com.mjvdevschool.oficina_mjv.rowmapper;
 
-import br.com.mjvdevschool.oficina.modelsDTO.DefeitoPecaDTO;
+import com.mjvdevschool.oficina_mjv.modelsDTO.DefeitoPecaDTO;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
