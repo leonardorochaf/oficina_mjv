@@ -1,0 +1,9 @@
+body {
+    background-color: #EEE;
+}
+
+.main-card {
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 10%;
+}

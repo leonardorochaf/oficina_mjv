@@ -1,0 +1,25 @@
+h3 {
+    text-align: center;
+}
+
+.secondary-card {
+    background-color: #702094;
+    height: 130px;
+    border-radius: 10px;
+}
+
+.card-body {
+    font-size: 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card-body a {
+    text-decoration: none;
+    color: white;
+}
+
+.card-body a:hover {
+    color: #EDCDFE;
+}
