@@ -3,6 +3,7 @@ package com.mjvdevschool.oficina_mjv.services;
 import com.mjvdevschool.oficina_mjv.models.Defeito;
 import com.mjvdevschool.oficina_mjv.models.Peca;
 import com.mjvdevschool.oficina_mjv.models.Registro;
+import com.mjvdevschool.oficina_mjv.modelsDTO.DefeitoPecaDTO;
 
 import java.util.List;
 
@@ -27,4 +28,8 @@ public interface RegistroService {
      * @return a lista com os registros ou uma lista vazia se nenhum registro se encaixar nos requisitos dos parametros passados
      */
     List<Registro> buscarTodos(Long veiculoId, String dataIncio, String dataFim);
+
+    Registro buscarPorId(Long id);
+
+    List<DefeitoPecaDTO> buscarDefeitoEPecaPorRegistro(Long idRegistro);
 }
