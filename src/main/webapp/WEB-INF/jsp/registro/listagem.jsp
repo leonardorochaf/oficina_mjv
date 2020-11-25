@@ -23,59 +23,71 @@
 
         <div class="card main-card d-flex mx-auto col-12 col-md-7 pt-4 pb-5 px-5">
             <h3>Registro de defeitos veiculares</h3>
-            <form>
-                <div class="form-row mt-3 mb-1">
-                    <div class="form-group col-md-5">
-                        <label for="selectVeiculos"><strong>Tipo de veículo</strong></label>
-                        <select class="form-control" id="selectVeiculos" name="veiculoId">
-                            <c:if test="${empty veiculos}">
-                                <option selected disabled>Nenhum veículo cadastrado</option>
-                            </c:if>
-                            <c:if test="${!empty veiculos}">
-                                <option selected value>Selecione</option>
-                            </c:if>
-                            <c:forEach items="${veiculos}" var="veiculo">
-                                <option value="${veiculo.id}"><c:out value="${veiculo.nome}"></c:out></option>
-                            </c:forEach>
-                        </select>
-                    </div>
+            <div class="form-row mt-3 mb-1">
+                <div class="form-group col-md-5">
+                    <label for="selectVeiculos"><strong>Tipo de veículo</strong></label>
+                    <select class="form-control" id="selectVeiculos" name="veiculoId">
+                        <c:if test="${empty veiculos}">
+                            <option selected disabled>Nenhum veículo cadastrado</option>
+                        </c:if>
+                        <c:if test="${!empty veiculos}">
+                            <option selected value>Selecione</option>
+                        </c:if>
+                        <c:forEach items="${veiculos}" var="veiculo">
+                            <option value="${veiculo.id}"><c:out value="${veiculo.nome}"></c:out></option>
+                        </c:forEach>
+                    </select>
                 </div>
+            </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-5">
-                        <label for="inputDataInicio"><strong>Data início</strong></label>
-                        <input type="date" class="form-control" id="inputDataInicio" name="dataInicio">
-                    </div>
-                    <div class="form-group col-md-5">
-                        <label for="inputDataFim"><strong>Data Fim</strong></label>
-                        <input type="date" class="form-control" id="inputDataFim" name="dataFim">
-                    </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="inputDataInicio"><strong>Data início</strong></label>
+                    <input type="date" class="form-control" id="inputDataInicio" name="dataInicio">
                 </div>
-
-                <div class="my-custom-scrollbar my-4">
-                    <table class="table hide-table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Cliente</th>
-                            <th scope="col">Data</th>
-                            <th scope="col">Veiculo</th>
-                            <th scope="col"></th>
-                        </tr>
-                        </thead>
-                        <tbody id="tableBody">
-
-                        </tbody>
-                    </table>
+                <div class="form-group col-md-5">
+                    <label for="inputDataFim"><strong>Data Fim</strong></label>
+                    <input type="date" class="form-control" id="inputDataFim" name="dataFim">
                 </div>
+            </div>
 
-                <a href="/" class="btn-voltar"><i class="fas fa-chevron-left"></i><strong>Voltar ao menu</strong></a>
-                <button class="btn btn-salvar float-right" id="btnEnviar">Pesquisar</button></form>
+
+            <div class="sk-chase mt-5" id="loader">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <div class="my-custom-scrollbar my-4">
+                <table class="table hide-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Veiculo</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableBody">
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div>
+                <a href="/" class="btn-voltar col"><i class="fas fa-chevron-left"></i><strong>Voltar ao menu</strong></a>
+                <button class="btn btn-salvar float-right" id="btnEnviar">Pesquisar</button>
+            </div>
+
         </div>
 
     </main>
 
-    <script type="text/javascript" src="/js/registro/buscaTodosRegistros.js"></script>
-    <script type="text/javascript" src="/js/registro/buscarTodosRegistrosComParametros.js"></script>
+    <script type="text/javascript" src="/js/registro/buscarRegistros.js"></script>
     <script type="text/javascript" src="/js/registro/montaTabelaListaRegistros.js"></script>
 
 </body>

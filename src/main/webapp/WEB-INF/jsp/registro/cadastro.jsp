@@ -82,6 +82,15 @@
                     </div>
                 </div>
 
+                <div class="sk-chase mt-5" id="loader" style="display: none">
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                </div>
+
                 <div class="my-custom-scrollbar my-4">
                     <table class="table <c:if test="${empty veiculos}">hide-table</c:if>">
                         <thead>
@@ -104,10 +113,9 @@
 
     </main>
 
-    <script type="text/javascript" src="/js/registro/buscaDefeitoEPecaPorVeiculo.js"></script>
+    <script type="text/javascript" src="/js/registro/buscarDefeitoEPecaPorVeiculo.js"></script>
     <script type="text/javascript" src="/js/registro/montaTabelaDefeitoEPeca.js"></script>
     <script type="text/javascript" src="/js/registro/dataEHora.js"></script>
-    <%--<script type="text/javascript" src="/js/registro/registroCheckboxValidation.js"></script>--%>
 
 </body>
 </html>
