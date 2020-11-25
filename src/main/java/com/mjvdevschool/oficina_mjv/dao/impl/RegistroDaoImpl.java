@@ -2,9 +2,12 @@ package com.mjvdevschool.oficina_mjv.dao.impl;
 
 import com.mjvdevschool.oficina_mjv.dao.RegistroDao;
 import com.mjvdevschool.oficina_mjv.models.Registro;
+import com.mjvdevschool.oficina_mjv.modelsDTO.DefeitoPecaDTO;
+import com.mjvdevschool.oficina_mjv.rowmapper.DefeitoPecaRowMapper;
 import com.mjvdevschool.oficina_mjv.rowmapper.RegistroRowMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -15,6 +18,7 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
 public class RegistroDaoImpl implements RegistroDao {
@@ -110,5 +114,48 @@ public class RegistroDaoImpl implements RegistroDao {
         LOGGER.info("RegistroDao: Fim metodo buscarTodos com parametros");
 
         return template.query(sql.toString(), params, new RegistroRowMapper());
+    }
+
+    @Override
+    public Optional<Registro> buscarPorId(Long id) {
+        try {
+            LOGGER.info("RegistroDao: Inicio metodo buscarPorId");
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.append("SELECT r.id, r.nome_cliente, r.data, r.hora, v.id, v.nome FROM registro r JOIN veiculo v ON r.veiculo_id = v.id WHERE r.id = :id");
+
+            MapSqlParameterSource params = new MapSqlParameterSource();
+
+            params.addValue("id", id);
+
+            LOGGER.info("RegistroDao: Fim metodo buscarTodos sem parametros");
+
+            return Optional.ofNullable(template.queryForObject(sql.toString(), params, new RegistroRowMapper()));
+        } catch (EmptyResultDataAccessException e) {
+            LOGGER.info("RegistroDao: Nao foi encontrada registro com o id: " + id);
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public List<DefeitoPecaDTO> buscarDefeitoEPecaPorRegistro(Long idRegistro) {
+        LOGGER.info("RegistroDao: Inicio metodo buscarDefeitoEPecaPorRegistro");
+
+        StringBuilder sql = new StringBuilder();
+
+        sql.append("SELECT dp.id, d.id, d.nome, p.id, p.nome FROM registro_peca_defeito rpd " +
+                "JOIN defeito_peca dp ON rpd.defeito_peca_id = dp.id " +
+                "JOIN defeito d ON dp.defeito_id = d.id " +
+                "JOIN peca p ON p.id = dp.peca_id " +
+                "WHERE rpd.registro_id = :idRegistro");
+
+        MapSqlParameterSource params = new MapSqlParameterSource();
+
+        params.addValue("idRegistro", idRegistro);
+
+        LOGGER.info("RegistroDao: Fim metodo buscarDefeitoEPecaPorRegistro");
+
+        return template.query(sql.toString(), params, new DefeitoPecaRowMapper());
     }
 }

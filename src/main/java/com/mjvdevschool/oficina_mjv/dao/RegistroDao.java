@@ -3,8 +3,10 @@ package com.mjvdevschool.oficina_mjv.dao;
 import com.mjvdevschool.oficina_mjv.models.Defeito;
 import com.mjvdevschool.oficina_mjv.models.Peca;
 import com.mjvdevschool.oficina_mjv.models.Registro;
+import com.mjvdevschool.oficina_mjv.modelsDTO.DefeitoPecaDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RegistroDao {
 
@@ -34,4 +36,8 @@ public interface RegistroDao {
      * @return a lista com os registros ou uma lista vazia se nenhum registro se encaixar nos requisitos dos parametros passados
      */
     List<Registro> buscarTodos(Long veiculoId, String dataInicio, String dataFim);
+
+    Optional<Registro> buscarPorId(Long id);
+
+    List<DefeitoPecaDTO> buscarDefeitoEPecaPorRegistro(Long idRegistro);
 }
