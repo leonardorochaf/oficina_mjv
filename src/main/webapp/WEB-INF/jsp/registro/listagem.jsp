@@ -61,15 +61,19 @@
                 <div class="sk-chase-dot"></div>
             </div>
 
-            <div class="my-custom-scrollbar my-4">
-                <table class="table hide-table">
+            <div class="not-found hide-notfound">
+
+            </div>
+
+            <div class="my-custom-scrollbar my-4 hide-table">
+                <table class="table">
                     <thead>
-                    <tr>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Veiculo</th>
-                        <th scope="col"></th>
-                    </tr>
+                        <tr>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Veiculo</th>
+                            <th scope="col"></th>
+                        </tr>
                     </thead>
                     <tbody id="tableBody">
 

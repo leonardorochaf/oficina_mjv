@@ -91,8 +91,13 @@
                     <div class="sk-chase-dot"></div>
                 </div>
 
+                <div class="tryagain hide-div">
+                    <h5>Houve um erro ao carregar as informações</h5>
+                    <button type="button" class="btn btn-tryagain">Tentar novamente</button>
+                </div>
+
                 <div class="my-custom-scrollbar my-4">
-                    <table class="table <c:if test="${empty veiculos}">hide-table</c:if>">
+                    <table class="table hide-table">
                         <thead>
                         <tr>
                             <th scope="col">Itens</th>

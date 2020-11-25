@@ -1,7 +1,8 @@
-function montaHtml (resultado) {
+function montaTabelaListaRegistros (resultado) {
     var html = [];
     if(resultado.length > 0 ) {
-        $("table").removeClass("hide-table")
+        $(".my-custom-scrollbar").removeClass("hide-table")
+        $(".not-found").addClass("hide-notfound")
 
         for(i = 0; i < resultado.length; i++) {
             var data = resultado[i].data.split("-");
@@ -16,8 +17,10 @@ function montaHtml (resultado) {
             $("#tableBody").html(html)
         }
     } else {
+        $("my-custom-scrollbar").addClass("hide-table")
+        $(".not-found").removeClass("hide-notfound")
         html.push('<h5 class="my-4" style="text-align: center">Nenhum registro encontrado</h5>')
-        $(".my-custom-scrollbar").html(html)
+        $(".not-found").html(html)
     }
 
 }

@@ -18,6 +18,23 @@
     color: #7B0B9A;
 }
 
+.tryagain {
+    text-align: center;
+}
+
+.btn-tryagain {
+    color: white;
+    background-color: #7B0B9A;
+}
+
+.hide-div {
+    display: none;
+}
+
+.btn-tryagain:hover {
+    color: white;
+}
+
 i {
     margin-right: 10px;
 }
@@ -35,4 +52,12 @@ i {
 #hora {
     font-size: 14px;
     color: #808080;
+}
+
+.hide-table {
+    display: none;
+}
+
+.hide-notfound {
+    display: none;
 }

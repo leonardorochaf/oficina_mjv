@@ -43,14 +43,14 @@
             </div>
 
             <div class="my-custom-scrollbar my-4">
-                <table class="table <c:if test="${empty veiculos}">hide-table</c:if>">
+                <table class="table">
                     <thead>
-                    <tr>
-                        <th scope="col">Peça</th>
-                        <th scope="col">Defeito</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">Peça</th>
+                            <th scope="col">Defeito</th>
+                        </tr>
                     </thead>
-                    <tbody id="tableBody" class="checkbox-group">
+                    <tbody>
                         <c:forEach items="${pecasdefeitos}" var="pecasdefeitos">
                             <tr>
                                 <td><c:out value="${pecasdefeitos.defeito.nome}"></c:out></td>

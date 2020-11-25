@@ -20,7 +20,7 @@ function buscarRegistros() {
             $("#loader").show()
         },
         success: function (resultado) {
-            montaHtml(resultado)
+            montaTabelaListaRegistros(resultado)
         },
         error: function (jqXhr, textStatus, errorMessage) {
             alert(textStatus)
