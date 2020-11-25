@@ -3,6 +3,7 @@ package com.mjvdevschool.oficina_mjv.controllers;
 import com.mjvdevschool.oficina_mjv.models.Defeito;
 import com.mjvdevschool.oficina_mjv.models.Peca;
 import com.mjvdevschool.oficina_mjv.models.Registro;
+import com.mjvdevschool.oficina_mjv.modelsDTO.DefeitoPecaDTO;
 import com.mjvdevschool.oficina_mjv.services.RegistroService;
 import com.mjvdevschool.oficina_mjv.services.VeiculoService;
 import org.slf4j.Logger;
@@ -90,14 +91,23 @@ public class RegistroController {
         return "registro/listagem";
     }
 
+    @GetMapping("/{id}")
+    public String listarPorId(@PathVariable Long id, ModelMap model) {
+        List<DefeitoPecaDTO> teste = registroService.buscarDefeitoEPecaPorRegistro(id);
+
+        model.put("pecasdefeitos", teste);
+        model.put("registro", registroService.buscarPorId(id));
+
+        return "registro/detalhes";
+    }
+
     /** Metodo que retorna um JSON com todos os {@link Registro}, podendo ou nao conter paramentros para serem usados na filtragem da query
      * @return
      */
     @GetMapping("/todos")
     @ResponseBody
     public ResponseEntity<List<Registro>> listarTodosRegistros(@RequestParam(required = false) Long veiculoId, @RequestParam(required = false) String dataInicio, @RequestParam(required = false) String dataFim) {
-        //TODO: metodo com erro no recebimento dos parametros
-        if(veiculoId == null && dataInicio == null && dataFim == null) {
+        if(veiculoId == null && StringUtils.isEmpty(dataInicio) && StringUtils.isEmpty(dataFim)) {
             return new ResponseEntity<>(registroService.buscarTodos(), HttpStatus.OK);
         }
 
