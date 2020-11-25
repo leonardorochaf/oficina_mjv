@@ -11,7 +11,7 @@ function montaHtml (resultado) {
             html.push('<td>' + resultado[i].nomeCliente + '</td>')
             html.push('<td>' + dataFormatada + '</td>')
             html.push('<td>' + resultado[i].veiculo.nome + '</td>')
-            html.push('<td><a href="#" class="float-right" style="color: #FF7800">Ver detalhes</a></td>')
+            html.push('<td><a href="/registro/' + resultado[i].id + '" class="float-right" style="color: #FF7800">Ver detalhes</a></td>')
             html.push('</tr>')
             $("#tableBody").html(html)
         }

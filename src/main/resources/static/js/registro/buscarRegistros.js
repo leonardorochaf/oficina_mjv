@@ -1,4 +1,12 @@
+$(function () {
+    buscarRegistros()
+})
+
 $("#btnEnviar").click(function (){
+    buscarRegistros()
+})
+
+function buscarRegistros() {
     var url = "/registro/todos"
     $.ajax({
         url: url,
@@ -8,11 +16,17 @@ $("#btnEnviar").click(function (){
             "dataInicio": $("#inputDataInicio").val(),
             "dataFim": $("#inputDataFim").val()
         },
+        beforeSend: function () {
+            $("#loader").show()
+        },
         success: function (resultado) {
             montaHtml(resultado)
         },
         error: function (jqXhr, textStatus, errorMessage) {
             alert(textStatus)
         },
+        complete: function () {
+            $("#loader").hide()
+        }
     })
-})
+}
