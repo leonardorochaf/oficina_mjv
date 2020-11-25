@@ -37,7 +37,17 @@ public interface RegistroDao {
      */
     List<Registro> buscarTodos(Long veiculoId, String dataInicio, String dataFim);
 
+    /**
+     * Retorna um {@link Registro} com base no id informado.
+     * @param id da registro que estamos buscando
+     * @return o registro com o id informado ou um optional vazio se não existir registro com o id informado
+     */
     Optional<Registro> buscarPorId(Long id);
 
+    /**
+     * Funcionalidade para buscar no banco de dados todas as {@link Peca} e {@link Defeito} que estejam relacionados com um {@link Registro}.
+     * @param idRegistro
+     * @return uma lista com todas as pecas e defeitos ou uma lista vazia se não existir nada cadastrado
+     */
     List<DefeitoPecaDTO> buscarDefeitoEPecaPorRegistro(Long idRegistro);
 }

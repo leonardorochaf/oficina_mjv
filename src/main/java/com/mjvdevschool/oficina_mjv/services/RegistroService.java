@@ -1,8 +1,11 @@
 package com.mjvdevschool.oficina_mjv.services;
 
+import com.mjvdevschool.oficina_mjv.exceptions.BusinessException;
+import com.mjvdevschool.oficina_mjv.exceptions.ResourceNotFoundException;
 import com.mjvdevschool.oficina_mjv.models.Defeito;
 import com.mjvdevschool.oficina_mjv.models.Peca;
 import com.mjvdevschool.oficina_mjv.models.Registro;
+import com.mjvdevschool.oficina_mjv.models.Veiculo;
 import com.mjvdevschool.oficina_mjv.modelsDTO.DefeitoPecaDTO;
 
 import java.util.List;
@@ -29,7 +32,18 @@ public interface RegistroService {
      */
     List<Registro> buscarTodos(Long veiculoId, String dataIncio, String dataFim);
 
+    /**
+     * Retorna um {@link Registro} com base no id informado.
+     * @param id
+     * @return
+     * @throws ResourceNotFoundException Exception disparada se nao existir um registro com o id informado.
+     */
     Registro buscarPorId(Long id);
 
+    /**
+     * Funcionalidade para buscar todas as {@link Peca} e {@link Defeito} que estejam relacionados com um {@link Registro}.
+     * @param idRegistro
+     * @return uma lista com todas as pecas e defeitos ou uma lista vazia se não existir nada cadastrado
+     */
     List<DefeitoPecaDTO> buscarDefeitoEPecaPorRegistro(Long idRegistro);
 }

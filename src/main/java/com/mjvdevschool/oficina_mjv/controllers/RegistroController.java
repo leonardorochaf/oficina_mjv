@@ -93,9 +93,9 @@ public class RegistroController {
 
     @GetMapping("/{id}")
     public String listarPorId(@PathVariable Long id, ModelMap model) {
-        List<DefeitoPecaDTO> teste = registroService.buscarDefeitoEPecaPorRegistro(id);
+        List<DefeitoPecaDTO> defeitoPecaDTO = registroService.buscarDefeitoEPecaPorRegistro(id);
 
-        model.put("pecasdefeitos", teste);
+        model.put("pecasdefeitos", defeitoPecaDTO);
         model.put("registro", registroService.buscarPorId(id));
 
         return "registro/detalhes";
