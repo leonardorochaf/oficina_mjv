@@ -1,5 +1,7 @@
 package com.mjvdevschool.oficina_mjv.modelsDTO;
 
+import com.mjvdevschool.oficina_mjv.models.Defeito;
+import com.mjvdevschool.oficina_mjv.models.Peca;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,11 +10,7 @@ public class DefeitoPecaDTO {
 
     private Long id;
 
-    private Long idDefeito;
+    private Defeito defeito;
 
-    private String nomeDefeito;
-
-    private Long idPeca;
-
-    private String nomePeca;
+    private Peca peca;
 }
