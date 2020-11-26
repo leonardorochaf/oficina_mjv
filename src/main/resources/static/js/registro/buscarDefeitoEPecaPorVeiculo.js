@@ -1,3 +1,8 @@
+$(function () {
+    $(".my-custom-scrollbar").hide()
+    $(".tryagain").hide()
+})
+
 $("#selectVeiculos").change(function () {
     buscarDefeitoePecaPorVeiculo()
 })
@@ -7,7 +12,8 @@ $(".btn-tryagain").click(function () {
 })
 
 function buscarDefeitoePecaPorVeiculo() {
-    $(".tryagain").addClass("hide-div")
+    $(".tryagain").hide()
+    $(".my-custom-scrollbar").hide()
     var url = "/veiculo/" + $("#selectVeiculos").val() + "/buscar_defeitos_e_pecas"
     $.ajax({
         url: url,
@@ -16,11 +22,11 @@ function buscarDefeitoePecaPorVeiculo() {
             $("#loader").show()
         },
         success: function (resultado) {
-            $(".table").removeClass("hide-table")
-            montaHtml(resultado)
+            $(".my-custom-scrollbar").show()
+            montaTabelaDefeitoEPeca(resultado)
         },
         error: function () {
-            $(".tryagain").removeClass("hide-div")
+            $(".tryagain").show()
         },
         complete: function () {
             $("#loader").hide()

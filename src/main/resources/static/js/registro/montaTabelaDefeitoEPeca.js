@@ -1,4 +1,4 @@
-function montaHtml (resultado) {
+function montaTabelaDefeitoEPeca (resultado) {
     var html = [];
     for(i = 0; i < resultado.length; i++) {
         html.push('<tr>')

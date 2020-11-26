@@ -11,8 +11,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Oficina MJV - Cadastro de registro</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/registro/registro.css" rel="stylesheet">
@@ -66,7 +64,7 @@
                 </div>
 
                 <div class="form-row mb-4">
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-6">
                         <label for="selectVeiculos"><strong>Tipo de veículo</strong></label>
                         <select class="form-control" id="selectVeiculos" name="veiculo.id" required>
                             <c:if test="${empty veiculos}">
@@ -91,13 +89,13 @@
                     <div class="sk-chase-dot"></div>
                 </div>
 
-                <div class="tryagain hide-div">
+                <div class="tryagain">
                     <h5>Houve um erro ao carregar as informações</h5>
                     <button type="button" class="btn btn-tryagain">Tentar novamente</button>
                 </div>
 
                 <div class="my-custom-scrollbar my-4">
-                    <table class="table hide-table">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th scope="col">Itens</th>
@@ -118,6 +116,10 @@
 
     </main>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/commom/alertFade.js"></script>
     <script type="text/javascript" src="/js/registro/buscarDefeitoEPecaPorVeiculo.js"></script>
     <script type="text/javascript" src="/js/registro/montaTabelaDefeitoEPeca.js"></script>
     <script type="text/javascript" src="/js/registro/dataEHora.js"></script>

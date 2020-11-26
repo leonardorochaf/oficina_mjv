@@ -1,8 +1,8 @@
 function montaTabelaListaRegistros (resultado) {
     var html = [];
     if(resultado.length > 0 ) {
-        $(".my-custom-scrollbar").removeClass("hide-table")
-        $(".not-found").addClass("hide-notfound")
+        $(".my-custom-scrollbar").show()
+        $(".not-found").hide()
 
         for(i = 0; i < resultado.length; i++) {
             var data = resultado[i].data.split("-");
@@ -17,10 +17,8 @@ function montaTabelaListaRegistros (resultado) {
             $("#tableBody").html(html)
         }
     } else {
-        $("my-custom-scrollbar").addClass("hide-table")
-        $(".not-found").removeClass("hide-notfound")
-        html.push('<h5 class="my-4" style="text-align: center">Nenhum registro encontrado</h5>')
-        $(".not-found").html(html)
+        $(".my-custom-scrollbar").hide()
+        $(".not-found").show()
     }
 
 }
